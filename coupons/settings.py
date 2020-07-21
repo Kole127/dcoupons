@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'rest_framework',
     # CORS
     'corsheaders',
-    #
+    # APP
+    'dynamite'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
