@@ -1,9 +1,9 @@
 import axios from "axios";
+import { createMessage } from "./messages";
 /*
-import { createMessage, returnErrors } from "./messages";
 import { tokenConfig } from "./auth";
 */
-import { GET_COUPONS, DELETE_COUPON, ADD_COUPON } from "./types";
+import { GET_COUPONS, DELETE_COUPON, ADD_COUPON, GET_ERRORS } from "./types";
 
 // GET COUPONS
 export const getCoupons = () => (dispatch) => {
@@ -27,7 +27,7 @@ export const deleteCoupon = (id) => (dispatch) => {
   axios
     .delete(`/api/coupon/${id}/`)
     .then((res) => {
-      /*dispatch(createMessage({ deleteCoupon: "Coupon Deleted" }));*/
+      dispatch(createMessage({ deleteCoupon: "Coupon Deleted" }));
       dispatch({
         type: DELETE_COUPON,
         payload: id,
@@ -41,11 +41,20 @@ export const addCoupon = (coupon) => (dispatch) => {
   axios
     .post("/api/coupon/", coupon)
     .then((res) => {
-      /*dispatch(createMessage({ addCoupon: "Coupon Added" }));*/
+      dispatch(createMessage({ addCoupon: "Coupon Added" }));
       dispatch({
         type: ADD_COUPON,
         payload: res.data,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      const errors = {
+        msg: err.response.data,
+        status: err.response.status,
+      };
+      dispatch({
+        type: GET_ERRORS,
+        payload: errors,
+      });
+    });
 };
