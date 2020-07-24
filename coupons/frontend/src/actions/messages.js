@@ -8,7 +8,6 @@ export const createMessage = (msg) => {
   };
 };
 
-/*
 // RETURN ERRORS
 export const returnErrors = (msg, status) => {
   return {
@@ -16,4 +15,3 @@ export const returnErrors = (msg, status) => {
     payload: { msg, status },
   };
 };
-*/
