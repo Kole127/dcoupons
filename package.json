@@ -1,11 +1,11 @@
 {
-  "name": "coupons",
+  "name": "couponmanager",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development --watch ./coupons/frontend/src/index.js --output ./coupons/frontend/static/frontend/main.js",
-    "build": "webpack --mode production ./coupons/frontend/src/index.js --output ./coupons/frontend/static/frontend/main.js"
+    "dev": "webpack --mode development --watch ./couponmanager/frontend/src/index.js --output ./couponmanager/frontend/static/frontend/main.js",
+    "build": "webpack --mode production ./couponmanager/frontend/src/index.js --output ./couponmanager/frontend/static/frontend/main.js"
   },
   "repository": {
     "type": "git",
